@@ -21,7 +21,20 @@ const FILES_TO_CACHE = [
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(FILES_TO_CACHE);
+      return cache.addAll([
+  '/',
+  '/index.html',
+  '/form.html',
+  '/weather.html',
+  '/script.js',
+  '/form.js',
+  '/weather.js',
+  '/style.css',
+  '/manifest.json',
+  '/offline.html',
+  '/icons/w192.png',
+  '/icons/w512.png'
+]);
     }).catch(function(error) {
       console.error('Błąd podczas cachowania plików:', error);
     })
